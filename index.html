@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday S!</title>
+<link rel="stylesheet" href="style.css">
+<base target="_blank">
+</head>
+<body>
+
+<!-- ==================== INTRO SCREEN ==================== -->
+<div id="intro-screen">
+    <div class="intro-frame">
+        <div class="tape"></div>
+       <video autoplay muted playsinline loop id="intro-video">
+    <source src="intro-video.mp4" type="video/mp4">
+</video>
+    </div>
+    <button class="next-btn" onclick="goToMain()">
+        Open/Skip <span style="margin-left:4px;">→</span>
+    </button>
+
+</div>
+
+<!-- ==================== MAIN SCREEN ==================== -->
+<div id="main-screen">
+    <div class="collage-container">
+
+        <!--
+        ============================================================
+        🌸 FLOWER IMAGES - REPLACE THE src URLs WITH YOUR OWN IMAGES
+        ============================================================
+
+        HOW TO ADD YOUR FLOWERS:
+        Option A - Local file (same folder as index.html):
+            src="flower-name.png"
+        Option B - Full URL from the web:
+            src="https://example.com/your-flower.png"
+        Option C - Subfolder:
+            src="images/flowers/flower-name.png"
+
+        TIP: Use PNG images with transparent background for best results!
+        The mix-blend-mode: multiply in CSS helps blend white-bg images.
+        ============================================================
+        -->
+
+        <!-- Flower 1: TOP RIGHT - Large peony, overlaps P2 -->
+        <!-- Position: Top right corner, partially covering polaroid P2 -->
+        <!-- Suggested: Large single peony or small bouquet -->
+        <img src="FL1.jpg"
+             class="flower-img flower-tr"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- Flower 2: BOTTOM LEFT - Large lily/peony cluster, overlaps P5 -->
+        <!-- Position: Bottom left, partially covering polaroid P5 -->
+        <!-- Suggested: Pink lily or large peony cluster -->
+        <img src="FL2.jpg"
+             class="flower-img flower-bl"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- Flower 3: TOP CENTER - Small peony bouquet, above title -->
+        <!-- Position: Just above "Happy Birthday" text -->
+        <!-- Suggested: Small peony bouquet or single flower -->
+        <img src="FL3.jpg"
+             class="flower-img flower-tl"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- Flower 4: RIGHT SIDE - Medium flower, overlaps P4 -->
+        <!-- Position: Right side, partially covering polaroid P4 -->
+        <!-- Suggested: Medium single flower or butterfly -->
+        <img src="FL4.jpg"
+             class="flower-img flower-r"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- Flower 5: BOTTOM RIGHT - Small flower, below message -->
+        <!-- Position: Bottom right area, below message card -->
+        <!-- Suggested: Small single flower or bud -->
+        <img src="FL5.jpg"
+             class="flower-img flower-br"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- Flower 6: INSIDE MESSAGE - Small bouquet on message card -->
+        <!-- Position: On top of the message card, right side -->
+        <!-- Suggested: Tiny peony bouquet or small flower cluster -->
+        <img src="BF2.jpg"
+             class="flower-img flower-ct"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- Flower 7: BOTTOM CENTER LEFT - Near P5 -->
+        <!-- Position: Bottom area, near polaroid P5 -->
+        <!-- Suggested: Small flower or decorative element -->
+        <img src="FL7.jpg"
+             class="flower-img flower-bc"
+             alt="flower"
+             onerror="this.style.display='none'">
+
+        <!-- ===== CENTER TEXT (White card with pink theme) ===== -->
+        <div class="center-text">
+            <h1 class="main-title">Happy<br>Birthday<br>JYL!</h1>
+            <p class="subtitle">A Special Day</p>
+        </div>
+
+        <!-- ===== MESSAGE CARD ===== -->
+        <div class="message-card">
+            <p class="message-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+
+        <!-- ===== 5 SCATTERED POLAROIDS ===== -->
+        <div class="polaroid p1" onclick="openVideo(0)">
+            <div class="tape pink-dot"></div>
+            <video autoplay muted loop playsinline>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+            <div class="play-icon">▶</div>
+        </div>
+
+        <div class="polaroid p2" onclick="openVideo(1)">
+            <div class="tape gold"></div>
+            <video autoplay muted loop playsinline>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+            <div class="play-icon">▶</div>
+        </div>
+
+        <div class="polaroid p3" onclick="openVideo(2)">
+            <div class="tape"></div>
+            <video autoplay muted loop playsinline>
+                <source src="video3.mp4" type="video/mp4">
+            </video>
+            <div class="play-icon">▶</div>
+        </div>
+
+        <div class="polaroid p4" onclick="openVideo(3)">
+            <div class="tape pink-dot"></div>
+            <video autoplay muted loop playsinline>
+                <source src="video4.mp4" type="video/mp4">
+            </video>
+            <div class="play-icon">▶</div>
+        </div>
+
+        <div class="polaroid p5" onclick="openVideo(4)">
+            <div class="tape gold"></div>
+            <video autoplay muted loop playsinline>
+                <source src="video5.mp4" type="video/mp4">
+            </video>
+            <div class="play-icon">▶</div>
+        </div>
+
+        <!-- ===== SMALL DECORATIONS ===== -->
+        <span class="deco-heart" style="top:22%;right:38%;">💕</span>
+        <span class="deco-heart" style="top:58%;left:36%;">💖</span>
+        <span class="deco-heart" style="bottom:32%;right:32%;">💗</span>
+        <span class="deco-star" style="top:8%;left:42%;">⭐</span>
+        <span class="deco-star" style="bottom:42%;left:28%;">✨</span>
+        <span class="deco-star" style="top:50%;right:6%;">⭐</span>
+
+        <!-- ===== NOTE CARDS ===== -->
+        <div class="note-card note-1">Good vibes 💕</div>
+        <div class="note-card note-2">Make a wish ✨</div>
+
+    </div>
+
+    <!-- ===== MUSIC CONTROLS ===== -->
+    <div class="music-controls">
+        <span class="music-label">Background Music</span>
+        <button class="music-btn" id="music-btn" onclick="toggleMusic()">▶</button>
+    </div>
+</div>
+
+<!-- ==================== VIDEO OVERLAY ==================== -->
+<div class="video-overlay" id="video-overlay" onclick="closeVideo(event)">
+    <div class="overlay-content" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="closeVideo()">✕</button>
+        <video controls autoplay id="overlay-video">
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<!-- ==================== AUDIO ==================== -->
+<audio id="bg-music" loop>
+    <source src="BGMusic.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>

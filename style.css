@@ -1,0 +1,579 @@
+/* ===== S BIRTHDAY WEBSITE - STYLES v3 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== INTRO SCREEN ===== */
+#intro-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, #fff 0%, #fff5f7 50%, #ffedf2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    padding: 20px;
+}
+
+#intro-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-frame {
+    width: 260px;
+    height: 340px;
+    background: white;
+    border-radius: 4px;
+    padding: 10px 10px 35px 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    position: relative;
+    transform: rotate(-2deg);
+    margin-bottom: 30px;
+}
+
+.intro-frame::before {
+    content: '';
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 18px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffb6c1,
+        #ffb6c1 4px,
+        #fff 4px,
+        #fff 8px
+    );
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.intro-frame::after {
+    content: '🎀';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
+
+.intro-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+
+.next-btn {
+    background: linear-gradient(135deg, #ff8fa3, #e06c85);
+    color: white;
+    border: none;
+    padding: 14px 48px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(224, 108, 133, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.next-btn:active { transform: scale(0.95); }
+
+.intro-hint {
+    font-size: 12px;
+    color: #d4a5a5;
+    font-weight: 300;
+}
+
+/* ===== MAIN SCREEN ===== */
+#main-screen {
+    min-height: 100vh;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    display: none;
+    padding-bottom: 80px;
+}
+
+#main-screen.active { display: block; }
+
+/* ===== COLLAGE CONTAINER ===== */
+.collage-container {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 50px 15px 30px;
+    min-height: 100vh;
+}
+
+/* ===== CENTER TEXT ===== */
+.center-text {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 240px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 30px rgba(255, 182, 193, 0.15);
+    border: 1px solid rgba(255, 182, 193, 0.2);
+}
+
+.main-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 34px;
+    color: #d87093;
+    line-height: 1.3;
+    text-shadow: 2px 2px 0px rgba(255,182,193,0.2);
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 10px;
+    color: #d4a0a0;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* ===== MESSAGE CARD ===== */
+.message-card {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 20px 18px;
+    width: 210px;
+    box-shadow: 0 5px 25px rgba(255, 182, 193, 0.15);
+    z-index: 10;
+    text-align: center;
+    border: 1px solid rgba(255, 182, 193, 0.2);
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffb6c1,
+        #ffb6c1 3px,
+        #fff 3px,
+        #fff 6px
+    );
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.message-text {
+    font-size: 11px;
+    line-height: 1.9;
+    color: #999;
+    font-style: italic;
+}
+
+/* ===== POLAROID FRAMES ===== */
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 8px 8px 28px 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 5;
+}
+
+.polaroid:active {
+    transform: scale(1.08) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    z-index: 20;
+}
+
+.polaroid video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #222;
+    display: block;
+    border-radius: 2px;
+}
+
+.polaroid .tape {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 16px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffb6c1,
+        #ffb6c1 3px,
+        #fff 3px,
+        #fff 6px
+    );
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    opacity: 0.9;
+}
+
+.polaroid .tape.gold {
+    background: repeating-linear-gradient(
+        45deg,
+        #ffd700,
+        #ffd700 3px,
+        #fff 3px,
+        #fff 6px
+    );
+}
+
+.polaroid .tape.pink-dot {
+    background: repeating-linear-gradient(
+        90deg,
+        #ffb6c1,
+        #ffb6c1 4px,
+        #fff 4px,
+        #fff 8px
+    );
+}
+
+.polaroid .play-icon {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #d87093;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== POSITIONED POLAROIDS ===== */
+.p1 { width: 125px; height: 155px; top: 15px; left: 10px; transform: rotate(-5deg); }
+.p2 { width: 105px; height: 130px; top: 30px; right: 15px; transform: rotate(4deg); }
+.p3 { width: 95px; height: 118px; top: 36%; left: 5px; transform: rotate(3deg); }
+.p4 { width: 100px; height: 125px; top: 38%; right: 8px; transform: rotate(-4deg); }
+.p5 { width: 110px; height: 135px; bottom: 90px; left: 20px; transform: rotate(-2deg); }
+
+/* ===== FLOWER IMAGE PLACEHOLDERS ===== */
+/*
+   INSTRUCTIONS: Replace "YOUR_IMAGE_URL_HERE" with your actual flower image URL or local path
+   Use PNG images with transparent background for best results
+   All flowers use pointer-events: none so they don't block clicks on polaroids
+   mix-blend-mode helps blend flowers with white background
+*/
+
+.flower-img {
+    position: absolute;
+    pointer-events: none;
+    z-index: 6;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.08));
+    /* Blend mode helps white-background images blend better */
+    mix-blend-mode: multiply;
+}
+
+/* Flower 1: TOP RIGHT - Overlaps P2, large peony */
+.flower-tr {
+    top: -5px;
+    right: -10px;
+    width: 140px;
+    height: auto;
+    transform: rotate(5deg);
+    z-index: 7;
+}
+
+/* Flower 2: BOTTOM LEFT - Overlaps P5, large lily/cluster */
+.flower-bl {
+    bottom: 30px;
+    left: -25px;
+    width: 150px;
+    height: auto;
+    transform: rotate(-10deg);
+    z-index: 7;
+}
+
+/* Flower 3: TOP CENTER - Above title, small peony bouquet */
+.flower-tl {
+    top: 28%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 60px;
+    height: auto;
+    z-index: 11;
+}
+
+/* Flower 4: RIGHT SIDE - Overlaps P4, medium flower */
+.flower-r {
+    top: 42%;
+    right: -5px;
+    width: 100px;
+    height: auto;
+    transform: rotate(8deg);
+    z-index: 7;
+}
+
+/* Flower 5: BOTTOM RIGHT - Below message, small flower */
+.flower-br {
+    bottom: 15%;
+    right: 15px;
+    width: 80px;
+    height: auto;
+    transform: rotate(-5deg);
+    z-index: 6;
+}
+
+/* Flower 6: INSIDE MESSAGE CARD - Small bouquet on top of message */
+.flower-ct {
+    top: 63%;
+    left: 72%;
+    transform: translateX(-50%) rotate(5deg);
+    width: 55px;
+    height: auto;
+    z-index: 11;
+}
+
+/* Flower 7: BOTTOM CENTER LEFT - Near P5, small accent */
+.flower-bc {
+    bottom: 22%;
+    left: 30%;
+    width: 70px;
+    height: auto;
+    transform: rotate(10deg);
+    z-index: 6;
+}
+
+/* ===== SMALL DECORATIONS ===== */
+.deco-heart {
+    position: absolute;
+    font-size: 14px;
+    opacity: 0.4;
+    z-index: 8;
+    pointer-events: none;
+}
+
+.deco-star {
+    position: absolute;
+    font-size: 12px;
+    opacity: 0.5;
+    z-index: 8;
+    pointer-events: none;
+}
+
+/* ===== NOTE CARDS ===== */
+.note-card {
+    position: absolute;
+    background: #fff0f5;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 10px;
+    color: #c06070;
+    font-weight: 500;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    z-index: 8;
+    transform: rotate(-2deg);
+    border: 1px solid rgba(255,182,193,0.3);
+}
+
+.note-1 { top: 20%; right: 5px; }
+.note-2 { bottom: 28%; right: 20px; transform: rotate(2deg); background: #fff8f0; }
+
+/* ===== VIDEO OVERLAY ===== */
+.video-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.video-overlay.active { display: flex; }
+
+.overlay-content {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    background: white;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+.overlay-content::after {
+    content: '🎀';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+}
+
+.overlay-content video {
+    width: 100%;
+    display: block;
+    background: #222;
+    border-radius: 2px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #ff8fa3, #d87093);
+    border: 3px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(216, 112, 147, 0.4);
+    z-index: 10;
+}
+
+.close-btn:active { transform: scale(0.9); }
+
+/* ===== MUSIC CONTROLS ===== */
+.music-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.9));
+    backdrop-filter: blur(10px);
+    padding: 10px 20px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+    border-top: 1px solid rgba(255,182,193,0.12);
+}
+
+.music-btn {
+    background: linear-gradient(135deg, #ffb6c1, #d87093);
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(216, 112, 147, 0.3);
+    transition: all 0.3s ease;
+}
+
+.music-btn:active { transform: scale(0.95); }
+
+.music-label {
+    font-size: 11px;
+    color: #d4a0a0;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 430px) {
+    .collage-container { max-width: 100%; }
+}
+
+@media (max-width: 390px) {
+    .main-title { font-size: 30px; }
+    .center-text { width: 220px; padding: 20px 15px; }
+    .p1 { width: 115px; height: 142px; }
+    .p2 { width: 95px; height: 118px; }
+    .p3 { width: 88px; height: 108px; }
+    .p4 { width: 92px; height: 115px; }
+    .p5 { width: 100px; height: 122px; bottom: 80px; }
+    .message-card { width: 190px; padding: 16px 14px; }
+    .flower-tr { width: 120px; right: -5px; }
+    .flower-bl { width: 130px; left: -15px; bottom: 20px; }
+    .flower-tl { width: 55px; }
+    .flower-r { width: 85px; }
+    .flower-br { width: 70px; }
+    .flower-ct { width: 50px; top: 62%; }
+    .flower-bc { width: 60px; }
+}
+
+@media (max-width: 360px) {
+    .main-title { font-size: 26px; }
+    .center-text { width: 200px; padding: 18px 12px; top: 44%; }
+    .p1 { width: 105px; height: 130px; top: 10px; left: 5px; }
+    .p2 { width: 88px; height: 108px; top: 25px; right: 10px; }
+    .p3 { width: 80px; height: 98px; }
+    .p4 { width: 85px; height: 105px; }
+    .p5 { width: 92px; height: 112px; bottom: 70px; left: 12px; }
+    .message-card { width: 175px; top: 66%; padding: 14px 12px; }
+    .flower-tr { width: 105px; top: -2px; }
+    .flower-bl { width: 115px; left: -10px; bottom: 15px; }
+    .flower-tl { width: 50px; }
+    .flower-r { width: 75px; right: -2px; }
+    .flower-br { width: 60px; bottom: 12%; }
+    .flower-ct { width: 45px; top: 61%; left: 75%; }
+    .flower-bc { width: 55px; left: 28%; }
+}
+
+@media (max-width: 320px) {
+    .main-title { font-size: 24px; }
+    .center-text { width: 180px; }
+    .p1 { width: 95px; height: 118px; }
+    .p2 { width: 80px; height: 98px; }
+    .p3 { width: 72px; height: 90px; }
+    .p4 { width: 78px; height: 96px; }
+    .p5 { width: 85px; height: 104px; bottom: 60px; left: 8px; }
+    .message-card { width: 160px; padding: 12px 10px; }
+    .flower-tr { width: 90px; }
+    .flower-bl { width: 95px; left: -5px; }
+    .flower-tl { width: 42px; }
+    .flower-r { width: 65px; }
+    .flower-br { width: 50px; }
+    .flower-ct { width: 38px; }
+    .flower-bc { width: 48px; }
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+    .music-controls { padding-bottom: calc(25px + env(safe-area-inset-bottom)); }
+}
